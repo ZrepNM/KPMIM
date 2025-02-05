@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPMIM Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+    <ul class="nav-links">
+        <li><a href="{% url 'course' %}">COURSE PAGE</a></li>
+        <li><a href="{% url 'mentor' %}">MENTOR PAGE</a></li>
+        <li><a href="{% url 'search' %}">SEARCH PAGE</a></li>
+    </ul>
+    <h1 class="center">KPMIM REGISTRATION</h1>
+    <img src="{% static 'KPM.png' %}" alt="KPM Image" class="center-image">
+
+    {% with firstname="Zharif Iszal" Mothersname="Noriza" fathername="Ahmad Kamal" greeting="1" %}
+        <h2>Hello {{ firstname }}, how are you?</h2>
+        <h2>My mother's name is {{ Mothersname }}</h2>
+        <h2>My father's name is {{ fathername }}</h2>
+
+        {% if greeting == "1" %}
+            <h1>Hello</h1>
+            Welcome to Selection
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

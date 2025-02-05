@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/search.css' %}">
+</head>
+<body>
+    <h1>WELCOME TO KPM INDERA MAHKOTA</h1><br><br>
+    <center><strong>SEARCH COURSE & MENTOR</strong></center>
+    <form action="" method="get">
+        Enter Search Input (COURSE/MENTOR): <input type="text" name="c_code">
+        <input type="submit" value="SEARCH">
+    </form>
+    <br><br>
+    <h2>Courses:</h2>
+    <table border="1">
+        <tr><th>Code</th><th>Description</th></tr>
+        {% for x in data %}
+        <tr>
+            <td>{{ x.code }}</td>
+            <td>{{ x.description }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="2">No courses found</td></tr>
+        {% endfor %}
+    </table>
+    <br><br>
+    <h2>Mentors:</h2>
+    <table border="1">
+        <tr><th>Mentor Code</th><th>Name</th><th>Email</th></tr>
+        {% for x in data1 %}
+        <tr>
+            <td>{{ x.code }}</td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.mail }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">No mentors found</td></tr>
+        {% endfor %}
+    </table>
+
+    <br><br>
+    <ul><a href="{% url 'index' %}">HOMEPAGE</a></ul>
+    <ul><a href="{%url 'mentor' %}">MENTOR PAGE</a></ul>
+</body>
+</html>
